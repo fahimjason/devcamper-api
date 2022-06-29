@@ -26,14 +26,15 @@ exports.getBootcamp = async (req, res, next) => {
 
         res.status(201).json({ success: true, data: bootcamp });
     } catch (err) {
-        res.status(400).json({ success: false });
+        // res.status(400).json({ success: false });
+        next(err);
     }
 };
 
 // @desc      Create new bootcamp
 // @route     POST /api/v1/bootcamps
 // @access    Private
-exports.createBootcamp = async (req, res) => {
+exports.createBootcamp = async (req, res, next) => {
     try {
         const bootcamp = await Bootcamp.create(req.body);
 
@@ -49,7 +50,7 @@ exports.createBootcamp = async (req, res) => {
 // @desc      Update bootcamp
 // @route     PUT /api/v1/bootcamps/:id
 // @access    Private
-exports.updateBootcamp = async (req, res) => {
+exports.updateBootcamp = async (req, res, next) => {
     try {
         const bootcamp = await Bootcamp.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
@@ -69,7 +70,7 @@ exports.updateBootcamp = async (req, res) => {
 // @desc      Delete bootcamp
 // @route     DELETE /api/v1/bootcamps/:id
 // @access    Private
-exports.deleteBootcamp = async (req, res) => {
+exports.deleteBootcamp = async (req, res, next) => {
     try {
         const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
 
