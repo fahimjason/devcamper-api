@@ -18,6 +18,8 @@ router
 
 router
     .route('/:id')
-    .get(getCourse);
+    .get(getCourse)
+    .put(updateCourse)
+    .delete(deleteCourse);
 
 module.exports = router;
