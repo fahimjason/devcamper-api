@@ -11,6 +11,13 @@ const Course = require('../models/Course');
 
 const router = express.Router({ mergeParams: true });
 
-router.route('/').get(getCourses)
+router
+    .route('/')
+    .get(getCourses)
+    .post(addCourse);
+
+router
+    .route('/:id')
+    .get(getCourse);
 
 module.exports = router;
