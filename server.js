@@ -19,6 +19,7 @@ connectDB();
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
 const auth = require('./routes/auth');
+const users = require('./routes/users');
 
 const app = express();
 
