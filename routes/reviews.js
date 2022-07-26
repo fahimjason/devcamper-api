@@ -21,7 +21,8 @@ router.route('/')
             select: 'name description'
         }),
         getReviews
-    );
+    )
+    .post(protect, authorize('user', 'admin'), addReview);
 
 router.route('/:id')
     .get(getReview);
