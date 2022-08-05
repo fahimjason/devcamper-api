@@ -78,8 +78,6 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/favicon.ico:1')
-
 const server = app.listen(
     PORT,
     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)
