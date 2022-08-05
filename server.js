@@ -26,7 +26,6 @@ const courses = require('./routes/courses');
 const auth = require('./routes/auth');
 const users = require('./routes/users');
 const reviews = require('./routes/reviews');
-
 const app = express();
 
 // Body parser
@@ -78,6 +77,8 @@ app.use('/api/v1/reviews', reviews);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
+
+app.get('/favicon.ico:1')
 
 const server = app.listen(
     PORT,
