@@ -26,6 +26,7 @@ const courses = require('./routes/courses');
 const auth = require('./routes/auth');
 const users = require('./routes/users');
 const reviews = require('./routes/reviews');
+
 const app = express();
 
 // Body parser
@@ -46,7 +47,7 @@ app.use(fileupload());
 app.use(mongoSanitize());
 
 // Set security headers
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 
 // Prevent XSS attacks
 app.use(xss());
